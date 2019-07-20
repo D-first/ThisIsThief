@@ -1,0 +1,81 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/components/Score/Score.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/font.tres" type="DynamicFont" id=2]
+
+[node name="Score" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 100
+script = ExtResource( 1 )
+
+[node name="GridContainer2" type="GridContainer" parent="."]
+editor/display_folded = true
+margin_right = 1080.0
+margin_bottom = 272.0
+columns = 2
+
+[node name="poorLabel" type="Label" parent="GridContainer2"]
+margin_right = 258.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 2 )
+text = "Poor:"
+
+[node name="poorValue" type="Label" parent="GridContainer2"]
+margin_left = 262.0
+margin_right = 304.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+
+[node name="normalLabel" type="Label" parent="GridContainer2"]
+margin_top = 69.0
+margin_right = 258.0
+margin_bottom = 134.0
+custom_fonts/font = ExtResource( 2 )
+text = "Normal:"
+
+[node name="normalValue" type="Label" parent="GridContainer2"]
+margin_left = 262.0
+margin_top = 69.0
+margin_right = 304.0
+margin_bottom = 134.0
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+
+[node name="goodLabel" type="Label" parent="GridContainer2"]
+margin_top = 138.0
+margin_right = 258.0
+margin_bottom = 203.0
+custom_fonts/font = ExtResource( 2 )
+text = "Good:"
+
+[node name="goodValue" type="Label" parent="GridContainer2"]
+margin_left = 262.0
+margin_top = 138.0
+margin_right = 304.0
+margin_bottom = 203.0
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+
+[node name="masterLabel" type="Label" parent="GridContainer2"]
+margin_top = 207.0
+margin_right = 258.0
+margin_bottom = 272.0
+custom_fonts/font = ExtResource( 2 )
+text = "Master:"
+
+[node name="masterValue" type="Label" parent="GridContainer2"]
+margin_left = 262.0
+margin_top = 207.0
+margin_right = 304.0
+margin_bottom = 272.0
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+
+[node name="TotalAmount" type="Label" parent="."]
+margin_top = 372.0
+margin_right = 1080.0
+margin_bottom = 437.0
+custom_fonts/font = ExtResource( 2 )
+text = "100000000"

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/components/TreasureBox/TreasureBox.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/treasure_box_close.png" type="Texture" id=2]
+[ext_resource path="res://assets/textures/treasure_box_open.png" type="Texture" id=3]
+
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": false,
+"name": "close",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "open",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 185.291, 138.846 )
+
+[node name="TreasureBox" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprites" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "close"
+
+[node name="TouchedArea" type="Area2D" parent="."]
+editor/display_folded = true
+
+[node name="shape" type="CollisionShape2D" parent="TouchedArea"]
+shape = SubResource( 2 )
+
+[node name="VanishTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Effect" type="Tween" parent="."]
+[connection signal="input_event" from="TouchedArea" to="." method="_on_TouchedArea_input_event"]
+[connection signal="timeout" from="VanishTimer" to="." method="_on_VanishTimer_timeout"]
+[connection signal="tween_completed" from="Effect" to="." method="_on_Effect_tween_completed"]

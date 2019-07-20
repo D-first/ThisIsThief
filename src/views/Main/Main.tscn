@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/views/Main/Main.gd" type="Script" id=1]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+spawn_quantity = 5
+
+[node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="PlayTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
+[connection signal="timeout" from="PlayTimer" to="." method="_on_PlayTimer_timeout"]
