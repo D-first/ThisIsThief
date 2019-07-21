@@ -1,4 +1,4 @@
-extends Control
+extends VBoxContainer
 class_name Score
 
 onready var treasure_store: TreasureStore = get_node("/root/TreasureStore")
